@@ -1,6 +1,8 @@
 ## Note about Elm knowledge that have learnt by myself
 
 Learn from course [Elm For Beginners](https://courses.knowthen.com/p/elm-for-beginners)
+References documentations:
+https://elm-lang.org/docs/syntax
 
 ### Pure functions
 
@@ -80,6 +82,42 @@ Type annotations
   - Record fields must exist
   - Record field will never be null
   - record.fieldName = .fieldName record (get value of the record’s field)
+  - { record | fieldName = value } - set value for field of record
 - Union Types in elm
   - Like an Enumeration of Different Types
   - type SomeType =Type1 | Type2 | Type3
+- **/=** is the same with **not (a == b)**
+
+### Elm List
+- We have two ways to display a list in Elm
+
+```elm
+linkedList = [ele1, ele2, ele3]
+-- equivalent syntax
+list = ele1 :: ele2 :: ele3 :: []
+```
+
+- Elm uses **++** or **::** to add new element to a list
+
+```elm
+newList = oldList ++ [newElement]
+newList = newElement :: oldList
+-- or
+newList = oldList :: newElement
+-- (depending on the order of the list)
+-- for example
+oldList = [ele1, ele2]
+newList = oldList :: ele3
+-- newList will be
+newList = [ele1, ele2, ele3]
+
+newList = ele3 :: oldList
+-- newList will be
+newList = [ele3, ele1, ele2]
+```
+
+### let in syntax
+
+**let** these values be defined **in** this specific expression.
+We use it when expression is getting large. Make a **let** to break
+it into smaller expression and put them together **in** a smaller expression
